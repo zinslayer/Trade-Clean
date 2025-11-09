@@ -28,7 +28,7 @@ from rapidfuzz import fuzz, process
 
 # Page configuration
 st.set_page_config(
-    page_title="Aarti Industries - Trade Data Cleaner",
+    page_title="Generalised AI Automation - Trade Data Cleaner made by Karan Koch",
     page_icon="🏭",
     layout="wide",
     initial_sidebar_state="collapsed"
@@ -3218,12 +3218,11 @@ with tab4:
                          # Remove bgcolor from geo dict
                      ),
                          paper_bgcolor='rgba(0,0,0,0)',
-                         plot_bgcolor='rgba(0,0,0,0)',  # Add this instead
                          font=dict(color='#ffffff', size=14),
                          coloraxis_colorbar=dict(
-                         title="Volume (MT)",
-                         titlefont=dict(size=14),
-                         tickfont=dict(size=12)
+                          title="Volume (MT)",
+                          titlefont=dict(size=14),
+                          tickfont=dict(size=12)
                          )
                       )
                     
@@ -4098,7 +4097,16 @@ with tab4:
                                         color_continuous_scale='Oranges',
                                         title='Sure-shot Customer Distribution'
                                     )
-                                    fig.update_layout(height=400, margin=dict(l=0, r=0, t=30, b=0))
+                                    
+                                    fig.update_layout(
+                                          height=400, 
+                                          margin=dict(l=0, r=0, t=30, b=0),
+                                          geo=dict(
+                                              showframe=False,
+                                              showcoastlines=True,
+                                              projection_type='natural earth'
+                                         )
+                                     )
                                     st.plotly_chart(fig, use_container_width=True)
                                     st.dataframe(df_sureshot, use_container_width=True, height=200)
                                 else:
@@ -4127,7 +4135,15 @@ with tab4:
                                         color_continuous_scale='Greens',
                                         title='Probable Customer Distribution'
                                     )
-                                    fig.update_layout(height=400, margin=dict(l=0, r=0, t=30, b=0))
+                                    fig.update_layout(
+                                           height=400, 
+                                           margin=dict(l=0, r=0, t=30, b=0),
+                                               geo=dict(
+                                                 showframe=False,
+                                                 showcoastlines=True,
+                                                 projection_type='natural earth'
+                                             )
+                                     )
                                     st.plotly_chart(fig, use_container_width=True)
                                     st.dataframe(df_probable, use_container_width=True, height=200)
                                 else:
@@ -4156,7 +4172,15 @@ with tab4:
                                         color_continuous_scale='Reds',
                                         title='Competitor Distribution'
                                     )
-                                    fig.update_layout(height=400, margin=dict(l=0, r=0, t=30, b=0))
+                                    fig.update_layout(
+                                            height=400, 
+                                            margin=dict(l=0, r=0, t=30, b=0),
+                                                geo=dict(
+                                                    showframe=False,
+                                                    showcoastlines=True,
+                                                    projection_type='natural earth'
+                                              )
+                                    )
                                     st.plotly_chart(fig, use_container_width=True)
                                     st.dataframe(df_competitors, use_container_width=True, height=200)
                                 else:
@@ -7223,6 +7247,7 @@ with tab8:
                     st.exception(e)
 
                 st.info("💡 Tips: Ensure your data has valid dates, quantities > 0, and values > 0")
+
 
 
 
