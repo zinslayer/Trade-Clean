@@ -1403,7 +1403,7 @@ with tab1:
                         
                         if st.button(f"🗑️ Clear All {data_type} Mappings", key="clear_button"):
                             st.session_state.current_mappings = {}
-                            st.experimental_rerun()
+                            st.rerun()
                     
                     # Get unmapped names
                     unmapped_names = [name for name in unique_names 
@@ -1443,7 +1443,7 @@ with tab1:
                             for name in selected_names:
                                 st.session_state.current_mappings[name] = target_name
                             st.success(f"Added mapping: {len(selected_names)} name(s) → {target_name}")
-                            st.experimental_rerun()
+                            st.rerun()
                     else:
                         st.success(f"✅ All unique {data_type.lower()} names have been mapped!")
                     
@@ -1539,7 +1539,7 @@ with tab1:
                                 
                                 # Clear temp data
                                 st.session_state.temp_cleaned_data = None
-                                st.experimental_rerun()
+                                st.rerun()
             else:
                 st.error(f"'{desc_column}' column not found in the uploaded files")
     else:
@@ -1594,7 +1594,7 @@ with tab1:
                     if selected_dataset:
                         del st.session_state.saved_datasets[selected_dataset]
                         st.success(f"Deleted dataset: {selected_dataset}")
-                        st.experimental_rerun()
+                        st.rerun()
 
 
 
@@ -1648,7 +1648,7 @@ with tab3:
                 }
                 st.session_state.value_chain_nodes.append(new_node)
                 st.success(f"Added {new_molecule_name} as {molecule_type}")
-                st.experimental_rerun()
+                st.rerun()
         
         # Upload downstream applications
         with st.expander("📤 Upload Downstream Applications", expanded=False):
@@ -1832,7 +1832,7 @@ with tab3:
                                     st.session_state.value_chain_edges.append(new_edge)
                                 
                                 st.success(f"✅ Created value chain with {len(categories_dict)} application categories connected to {target_node['label']}")
-                                st.experimental_rerun()
+                                st.rerun()
                     else:
                         st.warning("⚠️ No categories found. Make sure your Excel follows the expected format.")
                         
@@ -1914,7 +1914,7 @@ with tab3:
                                 st.session_state.value_chain_nodes[node_idx]['color'] = color_map[edited_type]
                                 st.session_state.value_chain_nodes[node_idx]['size'] = 30 if edited_type == "Target Product" else 25
                                 st.success("✅ Updated!")
-                                st.experimental_rerun()
+                                st.rerun()
                         
                         with col_delete:
                             if st.button("🗑️ Delete", key=f"delete_{node_idx}"):
@@ -1926,7 +1926,7 @@ with tab3:
                                     if edge['from'] != node_id and edge['to'] != node_id
                                 ]
                                 st.success("✅ Deleted!")
-                                st.experimental_rerun()
+                                st.rerun()
                 else:
                     st.info("No editable molecules. Add molecules first.")
         
@@ -1979,7 +1979,7 @@ with tab3:
                             }
                             st.session_state.value_chain_edges.append(new_edge)
                             st.success(f"✅ Connected {from_molecule} → {to_molecule}")
-                            st.experimental_rerun()
+                            st.rerun()
                         else:
                             st.warning("⚠️ Connection already exists!")
                     else:
@@ -2005,7 +2005,7 @@ with tab3:
                         with col_del:
                             if st.button("🗑️", key=f"del_edge_{idx}"):
                                 st.session_state.value_chain_edges.pop(idx)
-                                st.experimental_rerun()
+                                st.rerun()
         
         # Clear all
         st.markdown("---")
@@ -2013,7 +2013,7 @@ with tab3:
             st.session_state.value_chain_nodes = []
             st.session_state.value_chain_edges = []
             st.session_state.node_counter = 0
-            st.experimental_rerun()
+            st.rerun()
     
     with col_viz:
         st.markdown("#### 🔬 Value Chain Visualization")
@@ -2186,7 +2186,7 @@ with tab3:
                     }
                     st.session_state.value_chain_edges.append(new_edge)
                 
-                st.experimental_rerun()
+                st.rerun()
 
 with tab4:
     st.markdown("""
@@ -2885,7 +2885,7 @@ with tab4:
                         
                         if st.button(f"💾 Save Changes for {section}", key=f"save_relations_{section}"):
                             st.success(f"✅ Relations updated for {section}!")
-                            st.experimental_rerun()
+                            st.rerun()
                     
                     # Summary statistics with enhanced visuals
                     st.markdown("---")
@@ -3892,7 +3892,7 @@ with tab4:
                                     }
         
                                     st.success(f"✅ Analysis complete for {target_product_name or selected_target}!")
-                                    st.experimental_rerun()
+                                    st.rerun()
         
                                 except Exception as e:
                                     st.error(f"❌ Error during analysis: {str(e)}")
@@ -5079,7 +5079,7 @@ with tab5:
                     st.session_state.downstream_counter += 1
                     
                     st.success(f"✅ Added: {downstream_name} ({downstream_category})")
-                    st.experimental_rerun()
+                    st.rerun()
                 else:
                     st.error("⚠️ Please enter a downstream product name")
         
@@ -5122,7 +5122,7 @@ with tab5:
                             if ds['name'] != selected_to_remove
                         ]
                         st.success(f"Removed: {selected_to_remove}")
-                        st.experimental_rerun()
+                        st.rerun()
             
             # Calculate total market estimation
             st.markdown("---")
@@ -7222,4 +7222,5 @@ with tab8:
                 st.error(f"❌ Error during prediction: {str(e)}")
                 with st.expander("View detailed error"):
                     st.exception(e)
+
                 st.info("💡 Tips: Ensure your data has valid dates, quantities > 0, and values > 0")
