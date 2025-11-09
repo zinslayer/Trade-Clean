@@ -3210,13 +3210,8 @@ with tab4:
                     )
                     
                     fig_geo.update_layout(
-                        height=500,
-                        geo=dict(
-                            showframe=False, 
-                            showcoastlines=True, 
-                            projection_type='natural earth',
-                            bgcolor='rgba(0,0,0,0)'
-                        ),
+                                height=500,geo=dict(showframe=False,showcoastlines=True,projection_type='natural earth',bgcolor='rgba(0,0,0,0)'
+                         ),
                         paper_bgcolor='rgba(0,0,0,0)',
                         font=dict(color='#ffffff', size=14),
                         coloraxis_colorbar=dict(
@@ -7222,4 +7217,5 @@ with tab8:
                     st.exception(e)
 
                 st.info("💡 Tips: Ensure your data has valid dates, quantities > 0, and values > 0")
+
 
