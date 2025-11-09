@@ -3215,9 +3215,7 @@ with tab4:
                             showframe=False, 
                             showcoastlines=True, 
                             projection_type='natural earth',
-                            bgcolor='rgba(0,0,0,0)',
-                            lakecolor='rgba(10, 36, 99, 0.3)',
-                            landcolor='rgba(255, 255, 255, 0.05)'
+                            bgcolor='rgba(0,0,0,0)'
                         ),
                         paper_bgcolor='rgba(0,0,0,0)',
                         font=dict(color='#ffffff', size=14),
@@ -7224,3 +7222,4 @@ with tab8:
                     st.exception(e)
 
                 st.info("💡 Tips: Ensure your data has valid dates, quantities > 0, and values > 0")
+
