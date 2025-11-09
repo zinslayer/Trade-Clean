@@ -8,5 +8,7 @@ rapidfuzz
 scikit-learn
 streamlit-agraph
 networkx
+xlrd
+
 
 
