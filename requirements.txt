@@ -1,0 +1,10 @@
+streamlit
+pandas
+plotly
+openpyxl
+numpy
+requests
+rapidfuzz
+scikit-learn
+streamlitagraph
+networkx
