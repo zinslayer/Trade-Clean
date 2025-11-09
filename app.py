@@ -28,7 +28,7 @@ from rapidfuzz import fuzz, process
 
 # Page configuration
 st.set_page_config(
-    page_title="Generalised AI Automation - Trade Data Cleaner made by Karan Koch",
+    page_title="AI Automation Business Analysis - Trade Data Cleaner made by Karan Koch",
     page_icon="🏭",
     layout="wide",
     initial_sidebar_state="collapsed"
@@ -404,8 +404,8 @@ st.markdown("""
             </g>
         </svg>
         <div>
-            <div class="aarti-title">AARTI INDUSTRIES</div>
-            <div class="aarti-subtitle">Trade Data Standardization System</div>
+            <div class="aarti-title">AI Automation Business Analysis</div>
+            <div class="aarti-subtitle">Trade Data Standardization System made by Karan Koch</div>
         </div>
     </div>
 </div>
@@ -7246,6 +7246,7 @@ with tab8:
                     st.exception(e)
 
                 st.info("💡 Tips: Ensure your data has valid dates, quantities > 0, and values > 0")
+
 
 
 
