@@ -3210,16 +3210,22 @@ with tab4:
                     )
                     
                     fig_geo.update_layout(
-                                height=500,geo=dict(showframe=False,showcoastlines=True,projection_type='natural earth',bgcolor='rgba(0,0,0,0)'
-                         ),
-                        paper_bgcolor='rgba(0,0,0,0)',
-                        font=dict(color='#ffffff', size=14),
-                        coloraxis_colorbar=dict(
-                            title="Volume (MT)",
-                            titlefont=dict(size=14),
-                            tickfont=dict(size=12)
-                        )
-                    )
+                         height=500,
+                         geo=dict(
+                         showframe=False,
+                         showcoastlines=True,
+                         projection_type='natural earth'
+                         # Remove bgcolor from geo dict
+                     ),
+                         paper_bgcolor='rgba(0,0,0,0)',
+                         plot_bgcolor='rgba(0,0,0,0)',  # Add this instead
+                         font=dict(color='#ffffff', size=14),
+                         coloraxis_colorbar=dict(
+                         title="Volume (MT)",
+                         titlefont=dict(size=14),
+                         tickfont=dict(size=12)
+                         )
+                      )
                     
                     st.plotly_chart(fig_geo, use_container_width=True)
                 else:
@@ -7217,5 +7223,6 @@ with tab8:
                     st.exception(e)
 
                 st.info("💡 Tips: Ensure your data has valid dates, quantities > 0, and values > 0")
+
 
 
