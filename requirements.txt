@@ -6,5 +6,7 @@ numpy
 requests
 rapidfuzz
 scikit-learn
+streamlit-agraph
 networkx
+
 
